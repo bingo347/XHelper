@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2003
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XHelper", "XHelper\XHelper.csproj", "{75D3C05E-9A41-423C-A7E3-35CCA7661757}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{75D3C05E-9A41-423C-A7E3-35CCA7661757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75D3C05E-9A41-423C-A7E3-35CCA7661757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75D3C05E-9A41-423C-A7E3-35CCA7661757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75D3C05E-9A41-423C-A7E3-35CCA7661757}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B364ABB0-3C6A-4591-86DE-4822E8E99D92}
+	EndGlobalSection
+EndGlobal
