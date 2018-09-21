@@ -16,7 +16,7 @@ namespace XHelper.WSL {
         public WSLRunner(KeyboardLayoutWatcher keyboardLayoutWatcher) {
             wslProcess = Process.Start(new ProcessStartInfo("wsl", "XHelper") {
                 WindowStyle = ProcessWindowStyle.Hidden,
-                CreateNoWindow = false,
+                CreateNoWindow = true,
                 UseShellExecute = false,
                 RedirectStandardInput = true,
                 RedirectStandardOutput = true,
