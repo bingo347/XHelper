@@ -35,15 +35,15 @@ function runCommand(rawCmd) {
 function setxkbmap(lang) {
     try {
         cp.execSync(`setxkbmap ${lang}`);
-        process.stdout.write('ok\n');
-    } catch(e) {
-        process.stderr.write(String(e) + '\n');
+        sendMessage('ok');
+    } catch(err) {
+        sendError(err);
     }
 }
 
 function startTerminal() {
     const p = cp.spawn('xfce4-terminal', [], {
-        cwd: '/home/bingo',
+        cwd: process.env.HOME,
         env: Object.assign({}, process.env, {
             DISPLAY: ':0',
             LANG: 'ru_RU.UTF-8'
@@ -56,7 +56,15 @@ function startTerminal() {
         if(index < 0) { return; }
         terminals.splice(index, 1);
         if(terminals.length === 0) {
-            process.stdout.write('exit\n');
+            sendMessage('exit');
         }
     });
+}
+
+function sendError(err) {
+    process.stderr.write(String(err).replace(/\n/g, '\r').replace(/\r\r/g, '\r') + '\n');
+}
+
+function sendMessage(msg) {
+    process.stdout.write(`${msg}\n`);
 }
