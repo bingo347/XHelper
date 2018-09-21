@@ -16,6 +16,7 @@ namespace XHelper.WSL {
         public WSLRunner(KeyboardLayoutWatcher keyboardLayoutWatcher) {
             wslProcess = Process.Start(new ProcessStartInfo("wsl", "XHelper") {
                 WindowStyle = ProcessWindowStyle.Hidden,
+                CreateNoWindow = false,
                 UseShellExecute = false,
                 RedirectStandardInput = true,
                 RedirectStandardOutput = true,
@@ -33,6 +34,8 @@ namespace XHelper.WSL {
                 ReadOutput(wslProcess.StandardOutput, RunStdoutCommand),
                 ReadOutput(wslProcess.StandardError, ShowStderrOut)
             );
+            SendCommand("exit");
+            Thread.Sleep(500);
         }
 
         private async Task ReadOutput(StreamReader output, CommandRunner runCommand) {
@@ -56,7 +59,6 @@ namespace XHelper.WSL {
             switch(cmd) {
             case "exit":
                 exit = true;
-                SendCommand("exit");
                 break;
             }
             return exit;
@@ -64,7 +66,7 @@ namespace XHelper.WSL {
 
         private bool ShowStderrOut(string info) {
             MessageBox.Show(info, "Ошибка WSL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return false;
+            return true;
         }
 
         private void OnKeyboardLayoutChanged(string layout) {
