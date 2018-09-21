@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace XHelper.KeyboardLayout {
     public delegate void KeyboardLayoutChangedEventHandler(string layout);
