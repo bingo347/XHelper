@@ -3,6 +3,14 @@
 
 const cp = require('child_process');
 
+const execOptions = {
+    cwd: process.env.HOME,
+    env: Object.assign({}, process.env, {
+        DISPLAY: ':0',
+        LANG: 'ru_RU.UTF-8'
+    }),
+    stdio: 'ignore'
+};
 const terminals = [];
 let buffer = '';
 
@@ -34,7 +42,7 @@ function runCommand(rawCmd) {
 
 function setxkbmap(lang) {
     try {
-        cp.execSync(`setxkbmap ${lang}`);
+        cp.execSync(`setxkbmap ${lang}`, execOptions);
         sendMessage('ok');
     } catch(err) {
         sendError(err);
@@ -42,14 +50,7 @@ function setxkbmap(lang) {
 }
 
 function startTerminal() {
-    const p = cp.spawn('xfce4-terminal', [], {
-        cwd: process.env.HOME,
-        env: Object.assign({}, process.env, {
-            DISPLAY: ':0',
-            LANG: 'ru_RU.UTF-8'
-        }),
-        stdio: 'ignore'
-    });
+    const p = cp.spawn('xfce4-terminal', [], execOptions);
     terminals.push(p);
     p.on('exit', () => {
         const index = terminals.indexOf(p);

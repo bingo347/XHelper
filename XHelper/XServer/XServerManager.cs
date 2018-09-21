@@ -54,7 +54,9 @@ namespace XHelper.XServer {
 
         private void KillServer() {
             if(XServerProcess == null) { return; }
-            XServerProcess.Kill();
+            try {
+                XServerProcess.Kill();
+            } catch(Exception) {}
             Thread.Sleep(500);
         }
 

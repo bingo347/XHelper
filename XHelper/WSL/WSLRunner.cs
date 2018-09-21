@@ -36,7 +36,7 @@ namespace XHelper.WSL {
         }
 
         private async Task ReadOutput(StreamReader output, CommandRunner runCommand) {
-            char[] buf = new char[32];
+            char[] buf = new char[256];
             int index = 0;
             while(true) {
                 await output.ReadAsync(buf, index, 1);
@@ -64,7 +64,7 @@ namespace XHelper.WSL {
 
         private bool ShowStderrOut(string info) {
             MessageBox.Show(info, "Ошибка WSL", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            return true;
+            return false;
         }
 
         private void OnKeyboardLayoutChanged(string layout) {
