@@ -69,5 +69,14 @@ namespace XHelper.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на .
+        /// </summary>
+        internal static string XHelper {
+            get {
+                return ResourceManager.GetString("XHelper", resourceCulture);
+            }
+        }
     }
 }
