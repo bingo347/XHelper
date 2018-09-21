@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Threading;
 using System.Diagnostics;
 using System.Windows.Forms;
 using XHelper.Properties;
@@ -54,6 +55,7 @@ namespace XHelper.XServer {
         private void KillServer() {
             if(XServerProcess == null) { return; }
             XServerProcess.Kill();
+            Thread.Sleep(500);
         }
 
         ~XServerManager() {
