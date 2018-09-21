@@ -42,11 +42,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="KeyboardLayout\KeyboardLayoutWatcher.cs" />
+    <Compile Include="KeyboardLayout\WinApi.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="WSL\WSLRunner.cs" />
     <Compile Include="XServer\XServerManager.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -68,5 +71,6 @@
   <ItemGroup>
     <Content Include="Resources\XHelper.js" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
